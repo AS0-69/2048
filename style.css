@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #776e65;
+}
+
+.container {
+    text-align: center;
+    background: #faf8ef;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 70px;
+    font-weight: bold;
+    color: #776e65;
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.score-container, .best-container {
+    background: #bbada0;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.score-label, .best-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.score, .best-score {
+    font-size: 25px;
+}
+
+.new-game-btn {
+    background: #8f7a66;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.new-game-btn:hover {
+    background: #9f8a76;
+}
+
+.game-board {
+    background: #bbada0;
+    border-radius: 10px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 106px);
+    grid-template-rows: repeat(4, 106px);
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+    width: 484px;
+    height: 484px;
+}
+
+.tile {
+    background: #cdc1b4;
+    width: 106px;
+    height: 106px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    transition: all 0.15s ease-in-out;
+}
+
+.tile-2 { background: #eee4da; color: #776e65; }
+.tile-4 { background: #ede0c8; color: #776e65; }
+.tile-8 { background: #f2b179; color: #f9f6f2; }
+.tile-16 { background: #f59563; color: #f9f6f2; }
+.tile-32 { background: #f67c5f; color: #f9f6f2; }
+.tile-64 { background: #f65e3b; color: #f9f6f2; }
+.tile-128 { background: #edcf72; color: #f9f6f2; font-size: 30px; }
+.tile-256 { background: #edcc61; color: #f9f6f2; font-size: 30px; }
+.tile-512 { background: #edc850; color: #f9f6f2; font-size: 30px; }
+.tile-1024 { background: #edc53f; color: #f9f6f2; font-size: 25px; }
+.tile-2048 { background: #edc22e; color: #f9f6f2; font-size: 25px; }
+.tile-4096 { background: #3c3a32; color: #f9f6f2; font-size: 25px; }
+
+.tile-new {
+    animation: appear 0.2s ease-out;
+}
+
+.tile-merged {
+    animation: merge 0.3s ease-in-out;
+}
+
+.tile-move {
+    transition: all 0.15s ease-in-out;
+}
+
+@keyframes appear {
+    0% { 
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes merge {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% { 
+        transform: scale(1.3);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.game-over-overlay, .start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(238, 228, 218, 0.95);
+    border-radius: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.game-over-overlay.active, .start-overlay.active {
+    display: flex;
+}
+
+.start-overlay {
+    background: rgba(187, 173, 160, 0.9);
+}
+
+.start-message {
+    color: #776e65;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.start-instruction {
+    font-size: 20px;
+    color: #776e65;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #776e65;
+}
