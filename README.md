@@ -8,7 +8,7 @@ Utilisez les flèches directionnelles pour déplacer les tuiles. Lorsque deux tu
 
 ## 🕹️ Comment Jouer
 
-1. Ouvrez le fichier `2048.html` dans votre navigateur web
+1. Ouvrez le fichier `index.html` dans votre navigateur web
 2. Utilisez les **flèches directionnelles** (↑ ↓ ← →) pour déplacer les tuiles
 3. Les tuiles identiques fusionnent quand elles se touchent
 4. Continuez à combiner pour créer des tuiles de plus grande valeur
@@ -35,7 +35,7 @@ Utilisez les flèches directionnelles pour déplacer les tuiles. Lorsque deux tu
 git clone https://github.com/AS0-69/2048.git
 
 # Ouvrez le fichier HTML dans votre navigateur
-open 2048.html
+open index.html
 ```
 
 ## 📝 Règles
